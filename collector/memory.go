@@ -37,7 +37,7 @@ func (c *memoryCollector) Update(ch chan<- prometheus.Metric) error {
 	for i := 0; i < t.NumField(); i++ {
 		f := s.Field(i)
 		ff := f.Interface()
-		if strings.Contains(t.Field(i).Name, "Total") != true {
+		if strings.Contains(t.Field(i).Name, "Total") == true {
 			metricType = prometheus.CounterValue
 		} else {
 			metricType = prometheus.GaugeValue
